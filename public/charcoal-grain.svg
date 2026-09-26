@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960">
+  <!-- Fine static paper tooth. Seamless, with no coarse features to disclose a tile. -->
+  <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".76 .89" numOctaves="3" seed="41" stitchTiles="stitch"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 .925  0 0 0 0 .906  0 0 0 0 .863  .03 .03 .03 0 -.03"/>
+  </filter>
+  <rect width="960" height="960" filter="url(#paper)"/>
+</svg>

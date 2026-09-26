@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" preserveAspectRatio="none">
+  <!-- Original broken brush mark. Alpha mask only; never a background panel. -->
+  <defs>
+    <filter id="grain" x="-5%" y="-20%" width="110%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".12 .22" numOctaves="3" seed="29" result="paper"/>
+      <feDisplacementMap in="SourceGraphic" in2="paper" scale="4" result="edge"/>
+      <feColorMatrix in="paper" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .25 .25 .25 0 .25" result="tooth"/>
+      <feComposite in="edge" in2="tooth" operator="in"/>
+    </filter>
+  </defs>
+  <g fill="white" filter="url(#grain)" fill-rule="evenodd">
+    <path d="M14 57Q29 39 55 43Q74 31 100 38Q117 24 153 30Q173 19 195 25Q230 14 259 25Q284 16 310 27Q339 22 367 36Q390 30 415 45Q435 39 452 53L467 58Q448 71 423 64Q401 80 368 69Q344 84 315 75Q286 88 260 78Q228 91 198 81Q168 90 143 79Q114 87 96 77Q71 79 57 68L28 72L33 62ZM68 56Q104 43 130 47Q99 47 77 61ZM231 69L275 65L251 73ZM367 51L409 55L389 59Z"/>
+    <path d="M8 64L21 60L19 67ZM48 39Q70 25 87 32L68 37ZM159 22L184 18L174 24ZM310 82Q333 88 354 78L343 86L322 89ZM450 48L469 50L478 56L460 54Z" opacity=".5"/>
+  </g>
+</svg>

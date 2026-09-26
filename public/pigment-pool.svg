@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" preserveAspectRatio="none">
+  <!-- Two translucent, off-register pools, leaving several dry islands. -->
+  <defs><filter id="pool" x="-8%" y="-10%" width="116%" height="120%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".048 .081" numOctaves="3" seed="31" result="grain"/>
+    <feDisplacementMap in="SourceGraphic" in2="grain" scale="5" result="edge"/>
+    <feGaussianBlur in="edge" stdDeviation=".6" result="soft"/>
+    <feColorMatrix in="grain" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .4 .4 .4 0 .04" result="alpha"/>
+    <feComposite in="soft" in2="alpha" operator="in"/>
+  </filter></defs>
+  <g fill="white" fill-rule="evenodd" filter="url(#pool)">
+    <path d="M26 95Q12 72 42 55Q56 27 89 35Q119 13 148 33Q180 18 207 43Q243 34 262 64Q289 74 273 98Q279 129 246 131Q224 155 194 140Q167 165 136 144Q96 159 77 136Q40 144 39 119Q20 118 26 95ZM75 64Q91 54 113 56L100 60L82 69ZM217 105Q237 101 247 113L232 110L221 116Z" opacity=".86"/>
+    <path d="M151 75Q166 50 191 60Q208 45 226 61Q251 51 269 73Q292 77 292 99Q313 117 292 130Q286 147 262 144Q242 163 221 149Q193 158 176 139Q147 143 151 119Q134 99 151 75Z" opacity=".46"/>
+    <path d="M48 147Q60 144 72 152L62 157ZM301 80Q314 76 309 87ZM120 18L140 15L134 21Z" opacity=".33"/>
+  </g>
+</svg>

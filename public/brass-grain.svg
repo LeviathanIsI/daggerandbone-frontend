@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="128" viewBox="0 0 512 128">
+  <!-- Directional metal grain, painted into the CTA background beneath its label. -->
+  <filter id="brushed" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".024 .9" numOctaves="2" seed="13" stitchTiles="stitch"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 .13  0 0 0 0 .12  0 0 0 0 .10  .15 .15 .15 0 -.10"/>
+  </filter>
+  <rect width="512" height="128" filter="url(#brushed)"/>
+</svg>

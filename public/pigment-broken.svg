@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" preserveAspectRatio="none">
+  <!-- Two uneven strokes with an unpainted interval, not a continuous underline. -->
+  <defs><filter id="tooth" x="-8%" y="-15%" width="116%" height="130%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".11 .2" numOctaves="3" seed="7" result="grain"/>
+    <feDisplacementMap in="SourceGraphic" in2="grain" scale="3" result="edge"/>
+    <feColorMatrix in="grain" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .35 .35 .35 0 .2" result="alpha"/>
+    <feComposite in="edge" in2="alpha" operator="in"/>
+  </filter></defs>
+  <g fill="white" fill-rule="evenodd" filter="url(#tooth)">
+    <path d="M8 56Q24 43 41 47Q57 30 76 37Q109 21 134 31L147 28L141 44Q126 47 128 56Q99 54 79 69Q58 62 44 76L24 73L27 64ZM48 55L89 40L67 53Z"/>
+    <path d="M178 47Q195 38 211 42Q227 31 245 39Q259 33 278 48L300 49L312 58Q294 70 272 66Q252 75 232 67L219 75Q197 61 173 66L166 60Z" opacity=".74"/>
+    <path d="M54 81L88 76L79 83ZM137 60L150 57L147 64ZM212 28L234 25L229 30ZM301 72L316 66L310 73Z" opacity=".4"/>
+  </g>
+</svg>

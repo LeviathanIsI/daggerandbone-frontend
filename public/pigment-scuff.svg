@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" preserveAspectRatio="none">
+  <!-- A short rising scuff and a separate, lighter dab. -->
+  <defs><filter id="scuff" x="-8%" y="-15%" width="116%" height="130%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".14 .19" numOctaves="2" seed="53" result="grain"/>
+    <feDisplacementMap in="SourceGraphic" in2="grain" scale="3.8" result="edge"/>
+    <feColorMatrix in="grain" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .3 .3 .3 0 .18" result="alpha"/>
+    <feComposite in="edge" in2="alpha" operator="in"/>
+  </filter></defs>
+  <g fill="white" fill-rule="evenodd" filter="url(#scuff)">
+    <path d="M12 77Q33 63 53 62Q67 43 88 47Q106 23 127 31Q149 16 166 24L183 19L176 36Q153 36 139 55Q118 51 111 67Q87 64 75 83Q48 74 37 95L17 99L23 85ZM65 62L90 48L82 56Z"/>
+    <path d="M152 77Q172 66 187 70Q204 61 221 73L232 83L218 95Q198 88 188 102Q173 95 152 106L142 97L159 90Z" opacity=".5"/>
+    <path d="M69 94L94 83L88 96ZM193 49L209 42L203 51ZM31 56L43 50L41 58Z" opacity=".4"/>
+  </g>
+</svg>

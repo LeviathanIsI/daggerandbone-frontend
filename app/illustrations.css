@@ -1,0 +1,158 @@
+/* Ink and loose pigment. Complete still artwork is also the SSR / no-JS presentation. */
+.public-site .original-illustration {
+  --art-ivory: var(--site-text);
+  --art-brass: var(--site-amber);
+  --art-sea: var(--site-seaglass);
+  --art-sage: var(--site-sage);
+  --art-clay: var(--site-terracotta);
+  --art-shadow: var(--site-background);
+  --art-surface: var(--site-surface);
+  --art-paper: color-mix(in srgb, var(--site-text) 15%, var(--site-surface));
+  --art-timber: color-mix(in srgb, var(--site-amber) 7%, var(--site-surface));
+  --art-metal-mid: color-mix(in srgb, var(--site-amber) 60%, var(--site-surface));
+  --art-metal-dark: color-mix(in srgb, var(--site-amber) 30%, var(--site-background));
+  --art-metal-light: color-mix(in srgb, var(--site-amber) 60%, var(--site-text));
+  --art-leaf: color-mix(in srgb, var(--site-sage) 14%, var(--site-surface));
+  --art-water: color-mix(in srgb, var(--site-seaglass) 10%, var(--site-background));
+  --art-water-crest: color-mix(in srgb, var(--site-seaglass) 13%, var(--site-surface));
+  --art-liquid: color-mix(in srgb, var(--site-seaglass) 20%, transparent);
+  --art-clay-wash: color-mix(in srgb, var(--site-terracotta) 18%, var(--site-surface));
+  --art-lamp-wash: color-mix(in srgb, var(--site-amber) 30%, transparent);
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.public-site .ink-fine { fill: none; stroke: var(--art-ivory); stroke-width: .95; }
+.public-site .ink-brass { fill: none; stroke: var(--art-brass); stroke-width: 1.4; }
+.public-site .ink-ivory { fill: none; stroke: var(--art-ivory); stroke-width: 1.4; }
+.public-site .sail-seam { fill: none; stroke: var(--art-ivory); stroke-width: .9; opacity: .64; }
+/* Real area washes use unmixed pastels. Dense and dry patches come from the pigment
+   filter; only the existing outer mask feathers the complete composition. */
+.public-site .pigment-wash { fill: var(--pigment-color); stroke: none; opacity: .78; }
+.public-site .pigment-light { opacity: .44; }
+.public-site .pigment-sage { --pigment-color: var(--site-sage); }
+.public-site .pigment-sea { --pigment-color: var(--site-seaglass); }
+.public-site .pigment-amber { --pigment-color: var(--site-amber); }
+.public-site .pigment-coral { --pigment-color: var(--site-terracotta); }
+/* The line colors still follow the depicted material. */
+.public-site .botanical-branch, .public-site .still-carving { --art-ivory: var(--art-sage); --art-brass: var(--art-sage); }
+.public-site .engraved-water { --art-ivory: var(--art-sea); }
+.public-site .wave-crests { --art-ivory: var(--site-text); }
+.public-site .still-liquid, .public-site .still-receiver-ripple, .public-site .still-drip, .public-site .anim-ripple, .public-site .anim-pour { stroke: var(--art-sea); }
+.public-site .still-condenser { --art-brass: var(--art-clay); }
+.public-site .illustrated-scene { position: relative; min-width: 0; pointer-events: none; background: none; border: 0; outline: 0; }
+.public-site .scene-drawing { position: relative; background: none; }
+.public-site .illustrated-scene * { pointer-events: none; }
+.public-site .pulley-wheel, .public-site .case-catch, .public-site .anim-mechanism { transform-box: fill-box; transform-origin: center; }
+.public-site .sail-upper { transform-origin: 336px 128px; }
+.public-site .sail-main { transform-origin: 335px 276px; }
+.public-site .sail-fore { transform-origin: 339px 187px; }
+.public-site .rigging-front { transform-origin: 338px 133px; }
+.public-site .lantern-body { transform-origin: 120px 62px; }
+.public-site .cabin-hanging-lantern { transform-origin: 120px 0; }
+.public-site .lamp-flame { transform-origin: 122px 226px; }
+.public-site .botanical-branch { transform-origin: 48px 306px; }
+.public-site .door-left { transform-origin: 86px 255px; }
+.public-site .door-right { transform-origin: 531px 255px; }
+.public-site :is(.anim-linen,.anim-paper,.anim-page,.anim-bundle,.anim-tag,.anim-quill,.anim-pestle,.anim-press,.anim-caliper,.anim-latch,.anim-scroll,.anim-needle) { transform-box: fill-box; transform-origin: 50% 85%; }
+.public-site .anim-balance { transform-origin: 579px 213px; }
+.public-site .anim-blotters { transform-origin: 494px 477px; }
+.public-site .anim-ripple { transform-box: fill-box; transform-origin: center; }
+
+/* Every repeating timeline ends on its starting geometry: no empty frames or rewinds. */
+@keyframes sail-upper-breathe { 0%,100% { transform: skewX(0) scaleY(1); } 34% { transform: skewX(3.4deg) scaleY(1.04); } 73% { transform: skewX(-2deg) scaleY(.985); } }
+@keyframes sail-main-breathe { 0%,100% { transform: skewX(0) scaleY(1); } 38% { transform: skewX(2.8deg) scaleY(1.035); } 76% { transform: skewX(-2.2deg) scaleY(.975); } }
+@keyframes rigging-breathe { 0%,100% { transform: skewX(0); } 40% { transform: skewX(1.25deg); } 77% { transform: skewX(-.8deg); } }
+@keyframes current-back { 0%,100% { transform: translate(0,0); } 35% { transform: translate(-23px,7px); } 72% { transform: translate(19px,-5px); } }
+@keyframes current-mid { 0%,100% { transform: translate(0,0); } 40% { transform: translate(29px,9px); } 78% { transform: translate(-14px,-5px); } }
+@keyframes current-front { 0%,100% { transform: translate(0,0); } 40% { transform: translate(-36px,12px); } 76% { transform: translate(20px,-7px); } }
+@keyframes mechanism-turn { 0%,100% { transform: rotate(0); } 45% { transform: rotate(24deg); } 77% { transform: rotate(-9deg); } }
+@keyframes drawer-shift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(0,5px); } }
+@keyframes lantern-sway { 0%,100% { transform: rotate(0); } 36% { transform: rotate(2.5deg); } 75% { transform: rotate(-1.8deg); } }
+@keyframes lamp-warmth { 0%,100% { opacity: 1; } 28% { opacity: .7; } 56% { opacity: .95; } 80% { opacity: .78; } }
+@keyframes flame-breathe { 0%,100% { transform: skewX(0) scaleY(1); } 30% { transform: skewX(-8deg) scaleY(.91); } 65% { transform: skewX(6deg) scaleY(1.07); } }
+@keyframes leaf-breathe { 0%,100% { transform: rotate(0); } 40% { transform: rotate(1.7deg); } 78% { transform: rotate(-1.2deg); } }
+@keyframes door-breathe { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(.93); } }
+@keyframes paper-lift { 0%,100% { transform: skewY(0); } 45% { transform: skewY(-1.5deg); } 75% { transform: skewY(.7deg); } }
+@keyframes tool-settle { 0%,100% { transform: rotate(0); } 40% { transform: rotate(-2.8deg); } 76% { transform: rotate(1.7deg); } }
+@keyframes balance-sway { 0%,100% { transform: rotate(0); } 30% { transform: rotate(-3deg); } 72% { transform: rotate(2.8deg); } }
+@keyframes press-work { 0%,100% { transform: translateY(0); } 40%,55% { transform: translateY(7px); } }
+@keyframes basin-ripple { 0%,100% { transform: scale(1); opacity: 1; } 55% { transform: scale(1.045,.95); opacity: .7; } }
+@keyframes water-pour { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+@keyframes sand-fall { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -8; } }
+.public-site .has-entered .anim-sail-upper { animation: sail-upper-breathe 7.4s ease-in-out infinite; }
+.public-site .has-entered .anim-sail-main { animation: sail-main-breathe 8.6s ease-in-out infinite; }
+.public-site .has-entered .anim-sail-fore { animation: lantern-sway 8.1s ease-in-out infinite; }
+.public-site .has-entered .anim-rigging { animation: rigging-breathe 8.6s ease-in-out infinite; }
+.public-site .has-entered .anim-water-back { animation: current-back 12s ease-in-out infinite; }
+.public-site .has-entered .anim-water-mid { animation: current-mid 9s ease-in-out infinite; }
+.public-site .has-entered .anim-water-front { animation: current-front 7.5s ease-in-out infinite; }
+.public-site .has-entered .anim-mechanism { animation: mechanism-turn 11s ease-in-out infinite; }
+.public-site .has-entered .anim-drawer { animation: drawer-shift 10s ease-in-out infinite; }
+.public-site .has-entered .drawer-1 { animation-delay: 1s; }
+.public-site .has-entered .case-door { animation: door-breathe 13s ease-in-out infinite; }
+.public-site .has-entered .anim-lantern-body { animation: lantern-sway 8.5s ease-in-out infinite; }
+.public-site .has-entered .cabin-hanging-lantern { animation: lantern-sway 8.5s ease-in-out infinite; }
+.public-site .cabin-hanging-lantern .anim-lantern-body { animation: none; }
+.public-site .has-entered .anim-lantern { animation: lamp-warmth 5.1s ease-in-out infinite; }
+.public-site .has-entered .anim-flame { animation: flame-breathe 3.5s ease-in-out infinite; }
+.public-site .has-entered .anim-botanical { animation: leaf-breathe 8.4s ease-in-out infinite; }
+.public-site .has-entered :is(.anim-paper,.anim-page,.anim-linen,.anim-bundle) { animation: paper-lift 9.4s ease-in-out infinite; }
+.public-site .has-entered :is(.anim-tag,.anim-quill,.anim-pestle,.anim-caliper,.anim-blotters,.anim-needle,.anim-scroll) { animation: tool-settle 8.2s ease-in-out infinite; }
+.public-site .has-entered .tag-1 { animation-delay: .6s; }
+.public-site .has-entered .tag-2 { animation-delay: 1.2s; }
+.public-site .has-entered .anim-balance { animation: balance-sway 7s ease-in-out infinite; }
+.public-site .has-entered :is(.anim-press,.anim-latch) { animation: press-work 8s ease-in-out infinite; }
+.public-site .has-entered .anim-ripple { animation: basin-ripple 5.5s ease-in-out infinite; }
+.public-site .has-entered .anim-pour { animation: water-pour 4s ease-in-out infinite; }
+.public-site .has-entered .anim-sand { animation: sand-fall 1.5s linear infinite; }
+
+/* The still stays bolted to the timber. Only liquid, vapour, light and the hearth move. */
+.public-site .still-vapour { transform-origin: 447px 509px; }
+.public-site .still-hearth-flame { transform-origin: 449px 731px; }
+.public-site .still-receiver-ripple { transform-box: fill-box; transform-origin: center; }
+@keyframes retort-convection { 0%,100% { transform: skewX(0); } 33% { transform: skewX(5deg); } 70% { transform: skewX(-4deg); } }
+@keyframes retort-liquid { 0%,100% { transform: translateY(0); } 35% { transform: translateY(-5px); } 72% { transform: translateY(3px); } }
+@keyframes retort-reflection { 0%,100% { transform: translateX(0); opacity: .8; } 50% { transform: translateX(6px); opacity: 1; } }
+@keyframes cooling-flow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -108; } }
+@keyframes retort-drip { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -15; } }
+.public-site .has-entered .still-vapour { animation: retort-convection 6.4s ease-in-out infinite; }
+.public-site .has-entered .still-liquid { animation: retort-liquid 5.8s ease-in-out infinite; }
+.public-site .has-entered .still-glass-light { animation: retort-reflection 7.6s ease-in-out infinite; }
+.public-site .has-entered .still-coil-flow { animation: cooling-flow 4s linear infinite; }
+.public-site .has-entered .still-drip { animation: retort-drip 1.2s linear infinite; }
+.public-site .has-entered .still-receiver-ripple { animation: basin-ripple 3.8s ease-in-out infinite; }
+.public-site .has-entered .still-hearth-flame { animation: flame-breathe 3.4s ease-in-out infinite; }
+.public-site .has-entered .still-warmth { animation: lamp-warmth 5.1s ease-in-out infinite; }
+
+/* Provisioning: the suspended tackle and its loose fall move as one anchored assembly. */
+.public-site .provision-tackle { transform-origin: 0 -75px; }
+.public-site .provision-tie { transform-origin: 266px 364px; }
+.public-site .provision-linen { transform-origin: 480px 232px; }
+.public-site .provision-tag { transform-origin: 776px 428px; }
+@keyframes provision-tackle-sway { 0%,100% { transform: rotate(0); } 28% { transform: rotate(6deg); } 72% { transform: rotate(-5deg); } }
+@keyframes provision-tie-sway { 0%,100% { transform: rotate(0); } 30% { transform: rotate(-9deg); } 73% { transform: rotate(7deg); } }
+@keyframes provision-cloth-flex { 0%,100% { transform: skewY(0); } 32% { transform: skewY(-3.2deg); } 74% { transform: skewY(2.4deg); } }
+@keyframes provision-tag-sway { 0%,100% { transform: rotate(0); } 29% { transform: rotate(12deg); } 72% { transform: rotate(-9deg); } }
+.public-site .has-entered .provision-tackle { animation: provision-tackle-sway 5.4s ease-in-out infinite; }
+.public-site .has-entered .provision-tie { animation: provision-tie-sway 4.8s ease-in-out infinite; }
+.public-site .has-entered .provision-linen { animation: provision-cloth-flex 6.1s ease-in-out infinite; }
+.public-site .has-entered .provision-tag { animation: provision-tag-sway 4.6s ease-in-out infinite; }
+.public-site .has-entered .provision-tackle .pulley-wheel { animation: mechanism-turn 5.4s ease-in-out infinite; }
+.public-site .illustrated-scene[data-motion=paused] .original-illustration * { animation-play-state: paused !important; }
+.public-site .illustrated-scene[data-motion=still] .original-illustration * { animation: none !important; }
+
+/* Scent selection changes the provisioning scene's emphasis, alongside the actual products. */
+.public-site .provision-bay { opacity: 1; transition: opacity 400ms ease; }
+.public-site .provisioning-cordovan .provision-bay:not(.provision-cordovan),
+.public-site .provisioning-mordant .provision-bay:not(.provision-mordant),
+.public-site .provisioning-flint .provision-bay:not(.provision-flint) { opacity: .32; }
+.public-site .provisioning-cordovan .provision-cordovan { --art-brass: var(--site-amber-hover); }
+.public-site .provisioning-mordant .provision-mordant { --art-ivory: var(--art-sage); }
+.public-site .provisioning-flint .provision-flint { --art-brass: var(--art-sea); }
+@media(prefers-reduced-motion:reduce) {
+  .public-site .original-illustration, .public-site .original-illustration *, .public-site .scene-drawing { animation: none !important; transition: none !important; }
+}

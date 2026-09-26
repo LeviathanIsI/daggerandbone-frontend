@@ -1,0 +1,5 @@
+.admin-upload:focus-within{outline:2px solid #a87935;outline-offset:3px}
+.admin-message-actions select{min-height:36px;padding:6px 9px;background:#fff!important;border-color:#bfc7ba!important;color:#253225!important}
+.admin-field input:disabled{background:#e9ece4!important;color:#596357!important;cursor:not-allowed}
+.admin-drawer-close{display:none}
+@media(max-width:900px){.admin-brand{position:relative;padding-right:55px}.admin-drawer-close{display:grid;place-items:center;position:absolute;right:17px;top:25px;width:34px;height:34px;border:1px solid #586454;background:transparent;color:#e9e8dd}}
