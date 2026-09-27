@@ -72,16 +72,24 @@ test('live CMS replaces the saved snapshot, then offline reads reuse it; no snap
     live.source = 'live-api';
     live.capturedAt = '2026-09-24T12:00:00.000Z';
     live.site.pages.products.title = 'A saved CMS edit';
+    live.site.pages.about.intro = "We're Dagger & Bone Apothecary, based in St. Augustine. Josh, our founder, is developing our first collection.";
+    live.site.pages.about.seo.description = 'Meet Joshua Bradford.';
+    live.site.pages.about.images = [{ url: '/art.svg', alt: 'Portrait of Josh' }];
     global.fetch = async () => Response.json(live);
     const current = await published.readPublishedContent({ runtimeFile, archivedFile: absentFile });
     assert.equal(current.offline, false);
     assert.equal(current.bundle.site.pages.products.title, 'A saved CMS edit');
+    assert.equal(current.bundle.site.pages.about.intro, "We're Dagger & Bone Apothecary, based in St. Augustine. Our first collection is in development.");
+    assert.doesNotMatch(JSON.stringify(current.bundle), /\b(?:Josh(?:ua)?|Bradford)\b/i);
     assert.equal(JSON.parse(fs.readFileSync(runtimeFile, 'utf8')).site.pages.products.title, 'A saved CMS edit');
+    assert.doesNotMatch(fs.readFileSync(runtimeFile, 'utf8'), /\b(?:Josh(?:ua)?|Bradford)\b/i);
 
+    fs.writeFileSync(runtimeFile, JSON.stringify(live)); // An older saved file must also be safe to read.
     global.fetch = async () => { throw new Error('backend unavailable'); };
     const saved = await published.readPublishedContent({ runtimeFile, archivedFile: absentFile });
     assert.equal(saved.offline, true);
     assert.equal(saved.bundle.site.pages.products.title, 'A saved CMS edit');
+    assert.doesNotMatch(JSON.stringify(saved.bundle), /\b(?:Josh(?:ua)?|Bradford)\b/i);
     fs.unlinkSync(runtimeFile);
     const missing = await published.readPublishedContent({ runtimeFile, archivedFile: absentFile });
     assert.equal(missing.bundle, null);

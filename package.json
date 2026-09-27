@@ -7,7 +7,7 @@
     "build": "next build",
     "test": "npm run test:public",
     "test:catalog": "node --test tests/catalog.test.mjs",
-    "test:public": "node --test tests/catalog.test.mjs tests/public-site.test.cjs tests/public-forms.test.cjs tests/public-content-failure.test.cjs tests/illustrations.test.cjs",
+    "test:public": "node --test tests/catalog.test.mjs tests/public-site.test.cjs tests/public-forms.test.cjs tests/public-content-failure.test.cjs tests/illustrations.test.cjs tests/api-config.test.cjs",
     "start": "next start"
   },
   "dependencies": {

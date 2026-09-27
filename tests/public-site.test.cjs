@@ -6,6 +6,7 @@ const { renderToStaticMarkup } = require('react-dom/server');
 const { harness, React, root } = require('./public-harness.cjs');
 
 const archive = JSON.parse(fs.readFileSync(path.join(root, 'data/published-snapshot.json'), 'utf8'));
+assert.doesNotMatch(JSON.stringify(archive), /\b(?:Josh(?:ua)?|Bradford)\b/i, 'bundled public copy, metadata and media text');
 const h = harness();
 const PublicSite = h.load('components/public/PublicSite.js').default;
 const pageKeys = { home: 'home', collection: 'products', scents: 'scents', about: 'about', campaign: 'kickstarter', contact: 'contact', faq: 'faq' };
@@ -26,8 +27,7 @@ test('all public page types keep the established brand, accessible landmarks and
     assert.equal((html.match(/<main[ >]/g) || []).length, 1, kind);
     assert.match(html, /id="main"/, kind);
     assert.doesNotMatch(html, /design-switcher|<label[^>]*>Design<\/label>|historical-art|\/artwork\/|nga\.gov|rijksmuseum|<image[\s>]/, kind);
-    // The current brief explicitly authorizes confirmed founder facts on About only.
-    if (kind !== 'about') assert.doesNotMatch(html, /Josh/, kind);
+    assert.doesNotMatch(html, /\b(?:Josh(?:ua)?|Bradford)\b/i, kind);
     assert.doesNotMatch(html, /brand-logo\.png|brand-favicon\.png|scene-controls|Replay illustration|Fold cabinet doors/, kind);
     assert.match(html, /brand-lockup/, kind);
   }
@@ -139,7 +139,7 @@ test('prelaunch pages remove redundant controls, descriptions, calls to action a
   }
   assert.equal((render('campaign').match(/Each edition contains six bars/g) || []).length, 1);
   const about = render('about');
-  assert.match(about, /Josh, our founder/);
+  assert.match(about, /Our first collection is in development/);
   assert.match(about, /St\. Augustine, Florida/);
   assert.doesNotMatch(about, /about-position|Follow the Kickstarter launch/);
   const faq = render('faq');
